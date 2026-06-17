@@ -4,8 +4,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.jobpost.jobapplication.model.JobPost;
 
+@Repository
 public class JobRepository {
         List<JobPost> jobPosts = new ArrayList<>();
 
@@ -25,7 +28,8 @@ public class JobRepository {
                 return jobPosts;
         }
 
-        public void addJob(JobPost jobPost) {
+        public JobPost addJob(JobPost jobPost) {
                 jobPosts.add(jobPost);
+                return jobPost;
         }
 }
