@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jobpost.jobapplication.model.JobPost;
@@ -27,8 +28,9 @@ public class JobController {
         }
 
         @PostMapping("/job")
-        public JobPost addJob(JobPost jobPost) {
-                return jobService.addJob(jobPost);
+        public JobPost addJob(@RequestBody JobPost jobPost) {
+                jobService.addJob(jobPost);
+                return jobService.getJobById(jobPost.getPostId());
         }
 
         @GetMapping("/job/{id}")

@@ -3,6 +3,7 @@ package com.jobpost.jobapplication.service;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.jobpost.jobapplication.model.JobPost;
 import com.jobpost.jobapplication.repository.JobRepository;
