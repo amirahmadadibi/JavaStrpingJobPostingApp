@@ -19,4 +19,7 @@ public class JobService {
         public List<JobPost> getAllJob() {
                 return jobRepository.getAllJob();
         }
+        public JobPost getJobById(int id) {
+                return jobRepository.getJobById(id);
+        }
 }

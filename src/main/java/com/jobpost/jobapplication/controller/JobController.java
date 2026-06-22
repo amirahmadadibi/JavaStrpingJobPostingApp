@@ -2,7 +2,9 @@ package com.jobpost.jobapplication.controller;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,6 +12,7 @@ import com.jobpost.jobapplication.model.JobPost;
 import com.jobpost.jobapplication.service.JobService;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 public class JobController {
 
         private final JobService jobService;
@@ -28,4 +31,8 @@ public class JobController {
                 return jobService.addJob(jobPost);
         }
 
+        @GetMapping("/job/{id}")
+        public JobPost getJobById(@PathVariable int id) {
+                return jobService.getJobById(id);
+        }
 }
