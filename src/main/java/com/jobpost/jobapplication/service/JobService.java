@@ -3,11 +3,9 @@ package com.jobpost.jobapplication.service;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import com.jobpost.jobapplication.model.JobPost;
 import com.jobpost.jobapplication.repository.JobRepository;
-
 
 @Service
 public class JobService {
@@ -20,11 +18,16 @@ public class JobService {
         public List<JobPost> getAllJob() {
                 return jobRepository.getAllJob();
         }
+
         public JobPost getJobById(int id) {
                 return jobRepository.getJobById(id);
         }
 
         public JobPost updateJob(JobPost jobPost) {
                 return jobRepository.updateJob(jobPost);
+        }
+
+        public JobPost deleteJobById(int id) {
+                return jobRepository.deleteJobById(id);
         }
 }

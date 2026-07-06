@@ -48,4 +48,13 @@ public class JobRepository {
                 }
                 return existingJobPost;
         }
+
+        public JobPost deleteJobById(int id) {
+                JobPost existingJobPost = jobPosts.stream().filter(j -> j.getPostId() == id)
+                                .findFirst().orElse(null);
+                if (existingJobPost != null) {
+                        jobPosts.remove(existingJobPost);
+                }
+                return existingJobPost;
+        }
 }
