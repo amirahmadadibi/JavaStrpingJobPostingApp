@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,6 +31,12 @@ public class JobController {
         @PostMapping("/job")
         public JobPost addJob(@RequestBody JobPost jobPost) {
                 jobService.addJob(jobPost);
+                return jobService.getJobById(jobPost.getPostId());
+        }
+
+        @PutMapping("/job")
+        public JobPost updateJob(@RequestBody JobPost jobPost) {
+                jobService.updateJob(jobPost);
                 return jobService.getJobById(jobPost.getPostId());
         }
 

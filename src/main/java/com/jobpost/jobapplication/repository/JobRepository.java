@@ -5,7 +5,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import com.jobpost.jobapplication.model.JobPost;
 
@@ -36,5 +35,17 @@ public class JobRepository {
 
         public JobPost getJobById(int id) {
                 return jobPosts.stream().filter(jobPost -> jobPost.getPostId() == id).findFirst().orElse(null);
+        }
+
+        public JobPost updateJob(JobPost jobPost) {
+                JobPost existingJobPost = jobPosts.stream().filter(j -> j.getPostId() == jobPost.getPostId())
+                                .findFirst().orElse(null);
+                if (existingJobPost != null) {
+                        existingJobPost.setPostProfile(jobPost.getPostProfile());
+                        existingJobPost.setPostDesc(jobPost.getPostDesc());
+                        existingJobPost.setRegExprience(jobPost.getRegExprience());
+                        existingJobPost.setPostTechStack(jobPost.getPostTechStack());
+                }
+                return existingJobPost;
         }
 }

@@ -23,4 +23,8 @@ public class JobService {
         public JobPost getJobById(int id) {
                 return jobRepository.getJobById(id);
         }
+
+        public JobPost updateJob(JobPost jobPost) {
+                return jobRepository.updateJob(jobPost);
+        }
 }
